@@ -1,10 +1,7 @@
 function mergeSort(arr){
   var newArr=[];
-  if (arr.length<2){
-    return arr;
-  }
-  else{
-    //merge left half
+  function mergeLeft(arr){
+    var leftArr=arr;
     for (var i=0;i<arr.length/2;i++){
     
       if (arr[i]>arr[i+1]){
@@ -12,9 +9,13 @@ function mergeSort(arr){
         arr[i]=arr[i+1];
         arr[i+1]=temp;
       }
-      console.log("left "+ arr[i]);
+      
+      //console.log("left "+ arr[i]);
   }
-    //merge right half
+  return leftArr;
+}  
+function mergeRight(arr){
+  var rightArr=arr;
     for (var i=arr.length-1;i>=arr.length/2;i--){
     
       if (arr[i]<arr[i-1]){
@@ -22,9 +23,21 @@ function mergeSort(arr){
         arr[i]=arr[i-1];
         arr[i-1]=temp;
       }
-      console.log("right "+ arr[i]);
+     
+      //console.log("right "+ arr[i]);
   }
+   return rightArr;
+}
+ if (arr.length<2){
+    return arr;
+  }
+  else{
+    //merge left half
+    mergeLeft(arr);
+    //merge right half
+    mergeRight(arr);
+    console.log(mergeLeft(arr));
  }  
- console.log(arr);
+
 }
 mergeSort([15, 4, 3, 6]);
