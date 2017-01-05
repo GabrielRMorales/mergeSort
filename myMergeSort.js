@@ -36,20 +36,42 @@ function mergeSort(arr){
       console.log("halved Arr right "+rightArr);
       return rightArr;
     }
-  function merge(arr1,arr2){
+function merge(arr1,arr2){
       var mergedArr=[];
-      var totalLength=arr1.length+arr2.length;
-      for (var i=0;i<totalLength/2;i++){
-      if (arr1[i]>arr2[i]){
-        mergedArr.push(arr2[i]);
-        mergedArr.push(arr1[i]);
-        }
+      var length=0;
+      if (arr1.length>arr2.length){
+        length=arr1.length;
+      }
       else {
-        console.log("testr");
-        mergedArr.push(arr1[i]);
-        mergedArr.push(arr2[i]);
+        length=arr2.length;
+      }
+      for (var i=0;i<length;i++){
+      if (arr1[0]<arr2[0]){
+        mergedArr.push(arr1[0]);
+        arr1.splice(0,1);
+        console.log(arr1);
+      }
+      else if (arr2[0]<arr1[0]){
+        mergedArr.push(arr2[0]);
+        arr2.splice(0,1);
+        console.log(arr2);
+      }
+      if (i==length-1){
+        console.log("arr1 is now "+arr1);
+        console.log("arr2 is now "+arr2);
+        if (arr1.length>arr2.length){
+        for (var x=0;x<arr1.length;x++){
+          mergedArr.push(arr1[x]);
+        }
+      }
+      else {
+        for (var x=0;x<arr2.length;x++){
+          mergedArr.push(arr2[x]);
+        }
       }
       }
+     
+  }
       console.log("MERGED ARR "+mergedArr);
       return mergedArr;
     }
@@ -60,10 +82,8 @@ function mergeSort(arr){
     leftArr=sortLeft(arr);
     rightArr=sortRight(arr);
    return merge(leftArr,rightArr);
-   // console.log("LEFT ARR "+leftArr);
-    // console.log("RIGHT ARR "+rightArr);
     
     }
 }
 
-mergeSort([15, 5, 9, 2, 3, 6, 4, 20]);
+mergeSort([15, 5, 9, 2, 3, 6, 8,4, 20]);
