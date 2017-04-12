@@ -1,0 +1,1 @@
+Merge Sorts that follow the basic procedure of taking an array, sorting the left half, sorting the right half, then merging the two. One is made in Javascript, the other in Ruby.
