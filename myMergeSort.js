@@ -3,13 +3,13 @@ function mergeSort(arr){
   return [arr[0]];
   }
   
-  return merge(sl(arr.slice(0, arr.length/2)),sr(arr.slice(arr.length/2, arr.length)));
+  return merge(sortLeft(arr.slice(0, arr.length/2)),sortRight(arr.slice(arr.length/2, arr.length)));
   
-  function sl(arr){
+  function sortLeft(arr){
     return mergeSort(arr);
   }
 
-  function sr(arr){
+  function sortRight(arr){
     return mergeSort(arr);
   }
 
