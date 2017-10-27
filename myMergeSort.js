@@ -17,12 +17,10 @@ function mergeSort(arr){
     var new_arr=[];
       while (first.length>0 || second.length>0){
         if (first[0]<second[0] || second.length==0){
-          let x=first.splice(0,1);
-          new_arr.push(x);
+          new_arr.push(first.splice(0,1));
           }
         else {
-          let y=second.splice(0,1);
-          new_arr.push(y);
+          new_arr.push(second.splice(0,1));
         }
       }
     return merged = [].concat.apply([], new_arr);  
