@@ -3,13 +3,9 @@ function mergeSort(arr){
   return [arr[0]];
   }
   
-  return merge(sortLeft(arr.slice(0, arr.length/2)),sortRight(arr.slice(arr.length/2, arr.length)));
+  return merge(sortArr(arr.slice(0, arr.length/2)),sortArr(arr.slice(arr.length/2, arr.length)));
   
-  function sortLeft(arr){
-    return mergeSort(arr);
-  }
-
-  function sortRight(arr){
+  function sortArr(arr){
     return mergeSort(arr);
   }
 
